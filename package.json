@@ -1,0 +1,30 @@
+{
+	"name": "angular-time-picker",
+	"description": "time picker directive for angular js apps",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:wingify/angular-time-picker.git"
+	},
+	"author": "https://github.com/wingify/angular-time-picker/graphs/contributors",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/wingify/angular-time-picker/issues"
+	},
+	"homepage": "https://github.com/wingify/angular-time-picker",
+	"dependencies": {},
+	"devDependencies": {
+		"angular": "~1.3.0",
+		"angular-mocks": "~1.3.0",
+		"grunt": "^0.4.5",
+		"grunt-html2js": "^0.2.9",
+		"grunt-karma": "^0.9.0",
+		"grunt-serve": "^0.1.6",
+		"grunt-contrib-jshint": "^0.10.0",
+		"karma": "^0.12.25",
+		"karma-chrome-launcher": "^0.2.1",
+		"karma-firefox-launcher": "^0.1.7",
+		"karma-jasmine": "^0.2.3",
+		"karma-ng-html2js-preprocessor": "^0.2.0",
+		"karma-phantomjs-launcher": "^0.1.4"
+	}
+}
