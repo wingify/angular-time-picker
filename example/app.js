@@ -33,7 +33,7 @@ app.controller('testController', function ($scope) {
 	$scope.onApplyTimePicker = function () {
 		console.log('time range applied');
 	};
-	$scope.onResetTimePicker = function () {
+	$scope.onClearTimePicker = function () {
 		console.log('time range reset');
 	};
 });

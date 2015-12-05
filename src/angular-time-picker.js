@@ -13,8 +13,8 @@
  *      data-no-range="settings.noRange"
  *      data-format="settings.format"
  *      data-no-validation="settings.noValidation"
- *      data-apply-callback="onApplyTimePicker(data)"
- *      data-clear-callback="onResetTimePicker(data)">
+ *      data-apply-callback="onApplyTimePicker()"
+ *      data-clear-callback="onClearTimePicker()">
  * </ng-time-picker>```
  * </pre>
  *
