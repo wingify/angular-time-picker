@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+<link rel="stylesheet" type="text/css" href="../src/angular-time-picker.css">
+</head>
+
+  <body ng-app="testApp" ng-controller="testController">
+     <ng-time-picker
+  			data-dropdown-toggle-state="settings.first.dropdownToggleState"
+  			data-time-settings="settings.first.time"
+  			data-apply-callback="onApplyTimePicker(data)"
+  			data-clear-callback="onResetTimePicker(data)"
+  		>
+     </ng-time-picker>
+
+     <ng-time-picker
+        data-dropdown-toggle-state="settings.second.dropdownToggleState"
+        data-time-settings="settings.second.time"
+        data-apply-callback="onApplyTimePicker(data)"
+        data-clear-callback="onResetTimePicker(data)"
+        data-no-validation="settings.second.noValidation"
+        style="margin-top:120px;"
+      >
+     </ng-time-picker>
+
+     <ng-time-picker
+        data-dropdown-toggle-state="settings.third.dropdownToggleState"
+        data-time-settings="settings.third.time"
+        data-theme="settings.third.theme"
+        data-no-range="settings.third.noRange"
+        data-format="settings.third.format"
+        data-apply-callback="onApplyTimePicker(data)"
+        data-clear-callback="onResetTimePicker(data)"
+        style="margin-top:120px;"
+      >
+     </ng-time-picker>
+    <script type="text/javascript" src="../src/angular-time-picker.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+
+</html>
