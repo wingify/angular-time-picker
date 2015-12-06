@@ -57,7 +57,7 @@ angular.module('ngTimePicker', [])
 			scope.startingTimeHMinutesRange = [];
 			scope.endingTimeHMinutesRange = [];
 			scope.timeSettings = scope.timeSettings || {};
-			scope.theme = scope.theme || 'light'; // by default light theme
+			scope.theme = scope.theme ? ('angular-time-picker-' + scope.theme) : 'angular-time-picker-light'; // by default light theme
 
 			scope.timeHourFormat = (scope.format && parseInt(scope.format, 10) === 12) ? 12 : 24;
 			// For hours dropdown (0 - 23)
@@ -170,7 +170,7 @@ angular.module('ngTimePicker', [])
 			 * Whenever hours changed, need to validate the time (start time < end time)
 			 * Also, make the items in dropdown disabled if not applicable
 			 */
-			scope.updateHour = function () {
+			scope.validateHours = function () {
 				if (scope.startingHour !== scope.endingHour) {
 					for (var i = 0; i < timeMinutesRange.length; i++) {
 						scope.startingTimeHMinutesRange[i].disabled = false;
@@ -180,13 +180,13 @@ angular.module('ngTimePicker', [])
 					if (scope.endingMinute !== '00') {
 						scope.startingMinute = scope.endingMinute - 1;
 						scope.startingMinute = (scope.startingMinute < 10) ? ('0' + scope.startingMinute) : (scope.startingMinute + '');
-						scope.updateStartingMinuteTime();
+						scope.validateStartingMinuteTime();
 					} else if (scope.endingMinute === '00') {
 						scope.endingMinute = '01';
 					}
 				} else if (scope.startingHour === scope.endingHour) {
-					scope.updateStartingMinuteTime();
-					scope.updateEndingMinuteTime();
+					scope.validateStartingMinuteTime();
+					scope.validateEndingMinuteTime();
 				}
 
 				if (!scope.areInitialSettingsValidated) {
@@ -198,7 +198,7 @@ angular.module('ngTimePicker', [])
 			 * Whenever starting minutes changed, need to validate the time (start time < end time)
 			 * Also, make the items in dropdown disabled if not applicable
 			 */
-			scope.updateStartingMinuteTime = function () {
+			scope.validateStartingMinuteTime = function () {
 				for (var i = 0; i < timeMinutesRange.length; i++) {
 					if (i > (parseInt(scope.endingMinute, 10) - 1) && i < timeMinutesRange.length) {
 						scope.startingTimeHMinutesRange[i].disabled = true;
@@ -213,7 +213,7 @@ angular.module('ngTimePicker', [])
 			 * Whenever ending minutes changed, need to validate the time (start time < end time)
 			 * Also, make the items in dropdown disabled if not applicable
 			 */
-			scope.updateEndingMinuteTime = function () {
+			scope.validateEndingMinuteTime = function () {
 				for (var i = 0; i < timeMinutesRange.length; i++) {
 					if (i >= 0 && i < (parseInt(scope.startingMinute, 10) + 1)) {
 						scope.endingTimeHMinutesRange[i].disabled = true;
@@ -236,12 +236,12 @@ angular.module('ngTimePicker', [])
 							scope.endingTimeHoursRange[i].disabled = false;
 						}
 					}
-					scope.updateHour(scope.startingHour, scope.endingTimeHoursRange);
+					scope.validateHours(scope.startingHour, scope.endingTimeHoursRange);
 				});
 
 				scope.$watch('startingMinute', function (newValue, oldValue) {
 					if (!newValue || newValue === oldValue || scope.startingHour !== scope.endingHour) { return; }
-					scope.updateEndingMinuteTime();
+					scope.validateEndingMinuteTime();
 				});
 
 				scope.$watch('endingHour', function (newValue, oldValue) {
@@ -255,12 +255,12 @@ angular.module('ngTimePicker', [])
 							scope.startingTimeHoursRange[i].disabled = false;
 						}
 					}
-					scope.updateHour(scope.endingHour, scope.startingTimeHoursRange);
+					scope.validateHours(scope.endingHour, scope.startingTimeHoursRange);
 				});
 
 				scope.$watch('endingMinute', function (newValue, oldValue) {
 					if (!newValue || newValue === oldValue || scope.startingHour !== scope.endingHour) { return; }
-					scope.updateStartingMinuteTime();
+					scope.validateStartingMinuteTime();
 
 					if (!scope.areInitialSettingsValidated) {
 						scope.areInitialSettingsValidated = true;
