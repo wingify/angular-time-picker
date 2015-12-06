@@ -38,7 +38,7 @@ angular.module('ngTimePicker', [])
 	return {
 		restrict: 'EA',
 		replace: true,
-		templateUrl: 'angular-time-picker.tpl.html',
+		templateUrl: '../../src/angular-time-picker.tpl.html',
 		scope: {
 			timeSettings: '=',
 			dropdownToggleState: '=?',
@@ -57,7 +57,7 @@ angular.module('ngTimePicker', [])
 			scope.startingTimeHMinutesRange = [];
 			scope.endingTimeHMinutesRange = [];
 			scope.timeSettings = scope.timeSettings || {};
-			scope.theme = scope.theme || 'light'; // by default light theme
+			scope.theme = scope.theme ? ('angular-time-picker-' + scope.theme) : 'angular-time-picker-light'; // by default light theme
 
 			scope.timeHourFormat = (scope.format && parseInt(scope.format, 10) === 12) ? 12 : 24;
 			// For hours dropdown (0 - 23)

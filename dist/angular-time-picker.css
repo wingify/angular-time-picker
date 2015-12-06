@@ -2,44 +2,44 @@
  * Common classes
  *******************/
 
-.float--right {
+.angular-time-picker-float--right {
 	float: right;
 }
 
-.push--top {
+.angular-time-picker-push--top {
 	margin-top: 10px;
 }
 
-.push-half--left {
+.angular-time-picker-push-half--left {
 	margin-left: 5px;
 }
 
 /*******************/
 
 
-.theme {
+.angular-time-picker-theme {
     padding: 10px;
     width: 175px;
 }
 
-.dark {
+.angular-time-picker-dark {
 	background: #777;
 	/*color: #fff;*/
 	border: 1px solid #444;
 }
 
-.light {
+.angular-time-picker-light {
 	background: #fff;
 	border: 1px solid #777;
 	color: #777;
 }
 
-.dropdown__menu {
+.angular-time-picker-dropdown__menu {
 	position: absolute;
     z-index: 10000000;
 }
 
-.caret {
+.angular-time-picker-caret {
 	width: 0;
 	height: 0;
 	border-left: 5px solid transparent;
@@ -51,15 +51,15 @@
 	border-top: 5px solid #000;
 }
 
-.caret.dark {
+.angular-time-picker-caret.dark {
 	border-top: 5px solid #000;
 }
 
-.caret.light {
+.angular-time-picker-caret.light {
 	border-top: 5px solid #777;
 }
 
-.time-picker-button {
+.angular-time-picker-button {
 	line-height: 30px;
 	padding: 5px 20px 5px 5px;
 	position: relative;
