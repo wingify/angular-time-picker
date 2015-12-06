@@ -1,12 +1,18 @@
+/**
+ * Unit tests for angular-time-picker.js dirctive
+ * Run `grunt unit` to execute test cases
+ * Configure browsers in krma.conf.js
+ */
+
 'use strict';
 
 describe('Timepicker directive :: ', function() {
-	var scope, compile, $rootScope, timePickerElement, compile;
+	var scope, compile, $rootScope, timePickerElement;
 
 	beforeEach(module('ngTimePicker'));
 	beforeEach(module('angular-time-picker.tpl'));
 
-	describe('UI function test', function() {
+	describe('UI functional test :: ', function() {
 		var recompile = function () {
 			var template = '' +
 				'<ng-time-picker ' +
@@ -17,7 +23,6 @@ describe('Timepicker directive :: ', function() {
         			'data-format="settings.format"' +
         			'data-apply-callback="settings.onApplyTimePicker(data)" ' +
         			'data-clear-callback="settings.onResetTimePicker(data)" ' +
-        			'style="margin-top:120px;" ' +
 				'>' +
      			'</ng-time-picker>';
 
@@ -33,8 +38,8 @@ describe('Timepicker directive :: ', function() {
 
 			// Set default scope values
 			scope = $rootScope.$new();
-			scope.elementFirstChildClassName = 'time-picker-box';
-			scope.elementSecondChildClassname = 'dropdown__menu';
+			scope.elementFirstChildClassName = 'angular-time-picker-button';
+			scope.elementSecondChildClassname = 'angular-time-picker-dropdown__menu';
 
 			scope.settings = {
 				dropdownToggleState: false,
@@ -83,7 +88,7 @@ describe('Timepicker directive :: ', function() {
 				expect(directiveScope.startingTimeHoursRange.length).toBe(12);
 				expect(directiveScope.noRange).toBe(true);
 				expect(directiveScope.dropdownToggleState).toBe(true);
-				expect(directiveScope.theme).toEqual('light');
+				expect(directiveScope.theme).toEqual('angular-time-picker-light');
 			});
 
 			it('verify scope variables - using config 2', function () {
@@ -103,10 +108,10 @@ describe('Timepicker directive :: ', function() {
 				expect(directiveScope.startingTimeHoursRange.length).toBe(24);
 				expect(directiveScope.noRange).toBe(true);
 				expect(directiveScope.dropdownToggleState).toBe(false);
-				expect(directiveScope.theme).toEqual('dark');
+				expect(directiveScope.theme).toEqual('angular-time-picker-dark');
 			});
 
-			it('verify initial display time', inject(function ($timeout) {
+			it('verify initial display time method being called on initialization', inject(function ($timeout) {
 				var directiveScope = timePickerElement.isolateScope();
 				spyOn(directiveScope, 'setInitialTimeRange').and.callFake(function() {
 					return true;
@@ -117,22 +122,22 @@ describe('Timepicker directive :: ', function() {
 				expect(directiveScope.setInitialTimeRange).toHaveBeenCalled();
 			}));
 
-			it('change hours and minutes', inject(function ($timeout) {
+			it('verify hours and minutes validation methods being called on initialization', inject(function ($timeout) {
 				var directiveScope = timePickerElement.isolateScope();
-				spyOn(directiveScope, 'updateHour');
-				spyOn(directiveScope, 'updateEndingMinuteTime');
+				spyOn(directiveScope, 'validateHours');
+				spyOn(directiveScope, 'validateEndingMinuteTime');
 				recompile();
 
 				$timeout.flush();
 
 				// change starting hour
 				directiveScope.startingHour = '05';
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 			}));
 		});
 
 		describe('time range picker :: ', function () {
-			it('should verify variables on scope', function () {
+			it('should verify scope variables', function () {
 				scope.settings = {
 					dropdownToggleState: true,
 					time: {}
@@ -146,13 +151,13 @@ describe('Timepicker directive :: ', function() {
 				expect(directiveScope.startingTimeHoursRange.length).toBe(24);
 				expect(directiveScope.noRange).not.toBeDefined();
 				expect(directiveScope.dropdownToggleState).toBe(true);
-				expect(directiveScope.theme).toEqual('light');
+				expect(directiveScope.theme).toEqual('angular-time-picker-light');
 			});
 
-			it('change starting time - hours and minutes - should correct trigger watchers and methods', inject(function ($timeout) {
+			it('change STARTING time - hours and minutes - should trigger correct watchers and methods', inject(function ($timeout) {
 				var directiveScope = timePickerElement.isolateScope();
-				spyOn(directiveScope, 'updateHour');
-				spyOn(directiveScope, 'updateEndingMinuteTime');
+				spyOn(directiveScope, 'validateHours');
+				spyOn(directiveScope, 'validateEndingMinuteTime');
 				spyOn(directiveScope, 'applyTimeRangeFilter').and.callFake(function() {
 					return true;
 				});
@@ -162,21 +167,21 @@ describe('Timepicker directive :: ', function() {
 				// change starting hour
 				directiveScope.startingHour = '05';
 				directiveScope.$apply();
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 
 				// change starting minute
 				directiveScope.startingMinute = '30';
 				directiveScope.$apply();
-				expect(directiveScope.updateEndingMinuteTime).not.toHaveBeenCalled();
+				expect(directiveScope.validateEndingMinuteTime).not.toHaveBeenCalled();
 
 				timePickerElement.find('button')[1].click();
 				expect(directiveScope.applyTimeRangeFilter).toHaveBeenCalled();
 			}));
 
-			it('change ending time - hours and minutes - should correct trigger watchers and methods', inject(function ($timeout) {
+			it('change ENDING time - hours and minutes - should trigger correct watchers and methods', inject(function ($timeout) {
 				var directiveScope = timePickerElement.isolateScope();
-				spyOn(directiveScope, 'updateHour');
-				spyOn(directiveScope, 'updateStartingMinuteTime');
+				spyOn(directiveScope, 'validateHours');
+				spyOn(directiveScope, 'validateStartingMinuteTime');
 				spyOn(directiveScope, 'applyTimeRangeFilter').and.callFake(function() {
 					return true;
 				});
@@ -186,22 +191,22 @@ describe('Timepicker directive :: ', function() {
 				// change ending hour
 				directiveScope.endingHour = '20';
 				directiveScope.$apply();
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 
 				// change ending minute
 				directiveScope.endingMinute = '30';
 				directiveScope.$apply();
-				expect(directiveScope.updateStartingMinuteTime).not.toHaveBeenCalled();
+				expect(directiveScope.validateStartingMinuteTime).not.toHaveBeenCalled();
 
 				timePickerElement.find('button')[1].click();
 				expect(directiveScope.applyTimeRangeFilter).toHaveBeenCalled();
 			}));
 
-			it('change starting and ending time - should trigger correct watchers and methods', inject(function ($timeout) {
+			it('change STARTING and ENDING time - should trigger correct watchers and methods', inject(function ($timeout) {
 				var directiveScope = timePickerElement.isolateScope();
-				spyOn(directiveScope, 'updateHour');
-				spyOn(directiveScope, 'updateStartingMinuteTime');
-				spyOn(directiveScope, 'updateEndingMinuteTime');
+				spyOn(directiveScope, 'validateHours');
+				spyOn(directiveScope, 'validateStartingMinuteTime');
+				spyOn(directiveScope, 'validateEndingMinuteTime');
 				spyOn(directiveScope, 'applyTimeRangeFilter').and.callFake(function() {
 					return true;
 				});
@@ -211,32 +216,32 @@ describe('Timepicker directive :: ', function() {
 				// change starting hour
 				directiveScope.startingHour = '05';
 				directiveScope.$apply();
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 
 				// change starting minute
 				directiveScope.startingMinute = '30';
 				directiveScope.$apply();
-				expect(directiveScope.updateEndingMinuteTime).not.toHaveBeenCalled();
+				expect(directiveScope.validateEndingMinuteTime).not.toHaveBeenCalled();
 
 				// change ending hour
 				directiveScope.endingHour = '20';
 				directiveScope.$apply();
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 
 				// change ending minute
 				directiveScope.endingMinute = '30';
 				directiveScope.$apply();
-				expect(directiveScope.updateStartingMinuteTime).not.toHaveBeenCalled();
+				expect(directiveScope.validateStartingMinuteTime).not.toHaveBeenCalled();
 
 				timePickerElement.find('button')[1].click();
 				expect(directiveScope.applyTimeRangeFilter).toHaveBeenCalled();
 			}));
 
-			it('make starting and ending hours equal - should trigger correct watchers and methods', inject(function ($timeout) {
+			it('make STARTING and ENDING hours EQUAL - should trigger correct watchers and methods', inject(function ($timeout) {
 				var directiveScope = timePickerElement.isolateScope();
-				spyOn(directiveScope, 'updateHour');
-				spyOn(directiveScope, 'updateEndingMinuteTime');
-				spyOn(directiveScope, 'updateStartingMinuteTime');
+				spyOn(directiveScope, 'validateHours');
+				spyOn(directiveScope, 'validateEndingMinuteTime');
+				spyOn(directiveScope, 'validateStartingMinuteTime');
 				spyOn(directiveScope, 'applyTimeRangeFilter').and.callThrough();
 				spyOn(directiveScope, 'closeTimeFilterDropdown');
 
@@ -246,22 +251,22 @@ describe('Timepicker directive :: ', function() {
 				// change starting hour
 				directiveScope.startingHour = '20';
 				directiveScope.$apply();
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 
 				// change starting minute
 				directiveScope.startingMinute = '30';
 				directiveScope.$apply();
-				expect(directiveScope.updateEndingMinuteTime).not.toHaveBeenCalled();
+				expect(directiveScope.validateEndingMinuteTime).not.toHaveBeenCalled();
 
 				// change ending hour
 				directiveScope.endingHour = '20';
 				directiveScope.$apply();
-				expect(directiveScope.updateHour).toHaveBeenCalled();
+				expect(directiveScope.validateHours).toHaveBeenCalled();
 
 				// change ending minute
 				directiveScope.endingMinute = '50';
 				directiveScope.$apply();
-				expect(directiveScope.updateStartingMinuteTime).toHaveBeenCalled();
+				expect(directiveScope.validateStartingMinuteTime).toHaveBeenCalled();
 
 				timePickerElement.find('button')[1].click();
 				expect(directiveScope.applyTimeRangeFilter).toHaveBeenCalled();
@@ -356,7 +361,7 @@ describe('Timepicker directive :: ', function() {
 
 		// disable test cases
 		describe('time range - validation tests :: ', function () {
-			it('should disable respective options when starting hours and ending hours are changed', function () {
+			it('should disable respective options when STARTING HOURS and ENDING HOURS are changed', function () {
 				scope.settings = {
 					dropdownToggleState: false,
 					time: {
@@ -369,16 +374,16 @@ describe('Timepicker directive :: ', function() {
 				recompile();
 
 				var directiveScope = timePickerElement.isolateScope();
-
+				var k;
 				// change starting minute
 				directiveScope.startingHour = '05';
 				directiveScope.$apply();
 
 				// Now ending hour can have values greater than 04
-				for (var k = 0; k < 5; k++) {
+				for (k = 0; k < 5; k++) {
 					expect(directiveScope.endingTimeHoursRange[k].disabled).toBe(true);
 				}
-				for (var k = 5; k < 23; k++) {
+				for (k = 5; k < 23; k++) {
 					expect(directiveScope.endingTimeHoursRange[k].disabled).toBe(false);
 				}
 
@@ -388,15 +393,15 @@ describe('Timepicker directive :: ', function() {
 				directiveScope.$apply();
 
 				// Now starting hour can have values lesse than 11
-				for (var k = 0; k < 11; k++) {
+				for (k = 0; k < 11; k++) {
 					expect(directiveScope.startingTimeHoursRange[k].disabled).toBe(false);
 				}
-				for (var k = 11; k < 23; k++) {
+				for (k = 11; k < 23; k++) {
 					expect(directiveScope.startingTimeHoursRange[k].disabled).toBe(true);
 				}
 			});
 
-			it('should disable respective options when starting minutes and ending minutes are changed', function () {
+			it('should disable respective options when STARTING MINUTES and ENDING MINUTES are changed', function () {
 				scope.settings = {
 					dropdownToggleState: false,
 					time: {
@@ -408,6 +413,7 @@ describe('Timepicker directive :: ', function() {
 				};
 				recompile();
 
+				var k;
 				var directiveScope = timePickerElement.isolateScope();
 
 				// change starting minute
@@ -422,23 +428,23 @@ describe('Timepicker directive :: ', function() {
 				directiveScope.$apply();
 
 
-				for (var k = 0; k < 30; k++) {
+				for (k = 0; k < 30; k++) {
 					expect(directiveScope.startingTimeHMinutesRange[k].disabled).toBe(false);
 				}
-				for (var k = 30; k < 59; k++) {
+				for (k = 30; k < 59; k++) {
 					expect(directiveScope.startingTimeHMinutesRange[k].disabled).toBe(true);
 				}
 
 				// Now starting hour can have values lesse than 11
-				for (var k = 0; k < 11; k++) {
+				for (k = 0; k < 11; k++) {
 					expect(directiveScope.endingTimeHMinutesRange[k].disabled).toBe(true);
 				}
-				for (var k = 11; k < 59; k++) {
+				for (k = 11; k < 59; k++) {
 					expect(directiveScope.endingTimeHMinutesRange[k].disabled).toBe(false);
 				}
 			});
 
-			it('should decreament starting minute by 1 when both hours are same and starting minute equals ending minute', inject(function ($timeout) {
+			it('should decreament STARTING MINUTE by 1 when both hours are same and STARTING MINUTE equals ENDING MINUTE', inject(function ($timeout) {
 				scope.settings = {
 					dropdownToggleState: false,
 					time: {
@@ -463,7 +469,8 @@ describe('Timepicker directive :: ', function() {
 				expect(directiveScope.endingMinute).toEqual('10');
 			}));
 
-			it('should set starting and ending minute correctly when boht hours are same and ending minute is `00` => it will set starting minute to `00` and ending minute to `01`', inject(function ($timeout) {
+			it('should set STARTING and ENDING minute correctly when both hours are same and ending minute is `00` => it will set STARTING MINUTE to `00` and ENDING MINUTE to `01`',
+			inject(function ($timeout) {
 				scope.settings = {
 					dropdownToggleState: false,
 					time: {
