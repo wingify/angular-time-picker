@@ -9,13 +9,13 @@ Angular v1.2+
 
 ## Features
 
-* With no external dependency, ngTimePicker is lighter and faster.
-* It can used as a single time or as a time range picker.
+* With no external dependency, angular-time-picker is lighter and faster.
+* It can be used for picking a single time or a range of time.
 * Many different configurable options like:
-	* Set the initial time as per the requirements
-	* Two different themes viz light and dark
-	* configure a range of time
-	* Robust validation in case of time range
+	* Setting the initial display time as per the requirements
+	* Two minimalistic different themes viz light and dark
+	* Precisely configure/update the range of time as per the needs
+	* Robust validation exclusively for time range picker
 	* Provide custom callbacks for apply / cancel operations
 
 ## Demo
