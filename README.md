@@ -45,7 +45,7 @@ bower install angular-time-picker --save
 >
 ```html
 <!-- css file in head tag-->
-<link rel="stylesheet" type="text/css" href="bower_components/angular-time-picker/dist/angular-time-picker.css">
+<link rel="stylesheet" type="text/css" href="bower_components/angular-time-picker/dist/angular-time-picker.min.css">
 <!-- js files, either inside <head>...</head> or just before the </body> -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-time-picker/dist/angular-time-picker.min.js"></script>

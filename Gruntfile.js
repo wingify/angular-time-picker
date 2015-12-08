@@ -41,33 +41,25 @@ module.exports = function (grunt) {
                 }
             }
         },
-        htmlmin: {
-            dist: {
-                options: {
-                    removeComments: true,
-                    collapseWhitespace: true
-                },
-                files: {
-                    'dist/angular-time-picker.tpl.min.html': 'src/angular-time-picker.tpl.html'
-                }
-            }
-        },
         copy: {
             src: {
                 files: [{
                     expand: true,
-                    src: [ 'angular-time-picker.tpl.html', 'angular-time-picker.css', 'angular-time-picker.js' ],
+                    src: [ 'angular-time-picker.css', 'angular-time-picker.js' ],
                     cwd: 'src',
                     dest: 'dist/',
                     filter: 'isFile'
                 }]
             }
+        },
+        clean: {
+            before: [ 'dist' ]
         }
     });
 
     grunt.registerTask('local', [ 'html2js', 'jshint' ]);
-    grunt.registerTask('minify', [ 'uglify', 'cssmin', 'htmlmin' ]);
-    grunt.registerTask('build', [ 'html2js', 'jshint', 'copy:src', 'minify' ]);
+    grunt.registerTask('minify', [ 'uglify', 'cssmin' ]);
+    grunt.registerTask('build', [ 'clean:before', 'html2js', 'jshint', 'copy:src', 'minify' ]);
     grunt.registerTask('unit', [ 'html2js', 'karma:unit' ]);
 
     grunt.loadNpmTasks('grunt-html2js');
@@ -76,6 +68,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
 };
