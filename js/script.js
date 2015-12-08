@@ -54,7 +54,9 @@ function parseAnchors(node) {
             if (active) active.className = '';
             anchor.className = 'active';
         }
+        anchor.oldonclick = anchor.onclick;
         anchor.onclick = function () {
+            if (typeof this.oldonclick === 'function') { this.oldonclick(); }
             var active = document.querySelector('nav .docs a.active');
             var href = this.getAttribute('href');
             if (active) { active.className = ''; }

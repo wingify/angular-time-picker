@@ -42,8 +42,11 @@
 
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-time-picker.js"></script>
+    <script src="js/angular-app.js"></script>
 </head>
-<body ng-app="testApp">
+<body>
 <div class="container-narrow container-overall">
   <header class="header">
     <div class=" flexbox  flexbox--fixed  flexbox--centered" style="width:100%; height:auto">
@@ -79,7 +82,7 @@
                 <ul class="nav  nav-stacked  docs">
                     <li><a href="introduction.html" class="active">Introduction</a></li>
                     <li><a href="basic-usage.html">Basic Usage</a></li>
-                    <li><a href="live-demo.html">Live Demo</a></li>
+                    <li><a href="live-demo.html" onclick="setTimeout(function(){window.location += ''}, 10)">Live Demo</a></li>
                 </ul>
                 </nav>
                 <script>parseAnchors()</script>

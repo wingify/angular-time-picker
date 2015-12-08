@@ -1,11 +1,8 @@
-<script src="js/angular.js"></script>
-<script src="js/angular-time-picker.js"></script>
-<script src="js/angular-app.js"></script>
 <script src="js/script.js"></script><script>navigateHome()</script>
 
 ## Live Demo
 
-<div ng-app="testApp" ng-controller="testController">
+<div ng-cloak class="angular-time-picker-live-demo" ng-app="testAPp" ng-controller="testController">
 	<ng-time-picker
 		data-dropdown-toggle-state="settings.first.dropdownToggleState"
 		data-time-settings="settings.first.time"
@@ -33,3 +30,12 @@
 		style="margin-top:120px;">
 	</ng-time-picker>
 </div>
+
+<script type="text/javascript">
+var i = setInterval(function () {
+	if (!$('[ng-app]').length) return;
+
+	clearInterval(i);
+	angular.bootstrap(document, ['testApp']);
+}, 10);
+</script>

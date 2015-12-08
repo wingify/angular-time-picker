@@ -38,7 +38,7 @@ angular.module('ngTimePicker', [])
 	return {
 		restrict: 'EA',
 		replace: true,
-		templateUrl: 'js/angular-time-picker.tpl.html',
+		templateUrl: '/js/angular-time-picker.tpl.html',
 		scope: {
 			timeSettings: '=',
 			dropdownToggleState: '=?',
