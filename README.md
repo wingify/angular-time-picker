@@ -1,6 +1,11 @@
-# ngTimePicker
+<p align="center">
+  <img src="images/time-picker.png" alt="Time Picker" width="150" height="150"/>
+</p>
+
+# wyTimePicker
 
 A lightweight angular time picker directive.
+
 
 [![Bower Version](http://img.shields.io/bower/v/angular-time-picker.svg?style=flat)](https://github.com/wingify/angular-time-picker/releases) [![Build Status](http://img.shields.io/travis/wingify/angular-time-picker/master.svg?style=flat)](http://travis-ci.org/wingify/angular-time-picker)
 #### Requirements
@@ -44,15 +49,14 @@ bower install angular-time-picker --save
 <!-- js files, either inside <head>...</head> or just before the </body> -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-time-picker/dist/angular-time-picker.min.js"></script>
-<script src="bower_components/angular-time-picker/dist/angular-time-picker.tpl.min.js"></script>
 <!-- your app.js goes here -->
 ```
 
-* Inject the ngTimePicker module into your app:
+* Inject the wingify.timePicker module into your app:
 
 >
 ```js
-angular.module('myApp', ['ngTimePicker']);
+angular.module('myApp', ['wingify.timePicker']);
 ```
 
 ## Options
@@ -96,7 +100,7 @@ $scope.onClearTimePicker = function () {
 ```
 
 ```html
-<ng-time-picker
+<wy-time-picker
 	data-dropdown-toggle-state="settings.dropdownToggleState"
 	data-time-settings="settings.time"
 	data-theme="settings.theme"
@@ -105,7 +109,7 @@ $scope.onClearTimePicker = function () {
 	data-no-validation="settings.noValidation"
 	data-apply-callback="onApplyTimePicker()"
 	data-clear-callback="onClearTimePicker()">
-</ng-time-picker>
+</wy-time-picker>
 ```
 
 ## Browser Support

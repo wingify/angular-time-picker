@@ -9,7 +9,7 @@
 describe('Timepicker directive :: ', function() {
 	var scope, compile, $rootScope, timePickerElement;
 
-	beforeEach(module('ngTimePicker'));
+	beforeEach(module('wingify.timePicker'));
 	beforeEach(module('angular-time-picker.tpl'));
 
 	describe('UI functional test :: ', function() {

@@ -1,9 +1,9 @@
 /**
  * @ngdoc directive
- * @name ngTimePicker
+ * @name wyTimePicker
  * @restrict EA
  * @description
- * ngTimePickerDirective - pick a particular time or a time-range, useful for filtering data, querying time specific data, etc.
+ * wyTimePickerDirective - pick a particular time or a time-range, useful for filtering data, querying time specific data, etc.
  * <pre class="prettyprint">
  * ```
  * <ng-time-picker
@@ -33,12 +33,12 @@
 'use strict';
 
 /* global angular */
-angular.module('ngTimePicker', [])
-	.directive('ngTimePicker', [ '$timeout', function ($timeout) {
+angular.module('wingify.timePicker', [])
+	.directive('wyTimePicker', [ '$timeout', function ($timeout) {
 	return {
 		restrict: 'EA',
 		replace: true,
-		templateUrl: '../../src/angular-time-picker.tpl.html',
+		templateUrl: '/dist/angular-time-picker.tpl.html',
 		scope: {
 			timeSettings: '=',
 			dropdownToggleState: '=?',
