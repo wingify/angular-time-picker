@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('testApp', ['ngTimePicker']);
+var app = angular.module('testApp', ['wingify.timePicker']);
 app.controller('testController', function ($scope) {
 	$scope.settings = {
 		first: {

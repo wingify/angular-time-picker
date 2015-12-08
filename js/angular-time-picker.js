@@ -33,8 +33,8 @@
 'use strict';
 
 /* global angular */
-angular.module('ngTimePicker', [])
-	.directive('ngTimePicker', [ '$timeout', function ($timeout) {
+angular.module('wingify.timePicker', [])
+	.directive('wyTimePicker', [ '$timeout', function ($timeout) {
 	return {
 		restrict: 'EA',
 		replace: true,

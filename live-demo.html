@@ -3,23 +3,23 @@
 ## Live Demo
 
 <div ng-cloak class="angular-time-picker-live-demo" ng-app="testAPp" ng-controller="testController">
-	<ng-time-picker
+	<wy-time-picker
 		data-dropdown-toggle-state="settings.first.dropdownToggleState"
 		data-time-settings="settings.first.time"
 		data-apply-callback="onApplyTimePicker()"
 		data-clear-callback="onClearTimePicker()">
-	</ng-time-picker>
+	</wy-time-picker>
 
-	<ng-time-picker
+	<wy-time-picker
 		data-dropdown-toggle-state="settings.second.dropdownToggleState"
 		data-time-settings="settings.second.time"
 		data-apply-callback="onApplyTimePicker()"
 		data-clear-callback="onClearTimePicker()"
 		data-no-validation="settings.second.noValidation"
 		style="margin-top:120px;">
-	</ng-time-picker>
+	</wy-time-picker>
 
-	<ng-time-picker
+	<wy-time-picker
 		data-dropdown-toggle-state="settings.third.dropdownToggleState"
 		data-time-settings="settings.third.time"
 		data-theme="settings.third.theme"
@@ -28,14 +28,14 @@
 		data-apply-callback="onApplyTimePicker()"
 		data-clear-callback="onClearTimePicker()"
 		style="margin-top:120px;">
-	</ng-time-picker>
+	</wy-time-picker>
 </div>
 
 <script type="text/javascript">
-var i = setInterval(function () {
-	if (!$('[ng-app]').length) return;
+	var i = setInterval(function () {
+		if (!$('[ng-app]').length) return;
 
-	clearInterval(i);
-	angular.bootstrap(document, ['testApp']);
-}, 10);
+		clearInterval(i);
+		angular.bootstrap(document, ['testApp']);
+	}, 10);
 </script>

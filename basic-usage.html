@@ -24,8 +24,22 @@ bower install angular-time-picker --save
 <!-- your app.js goes here -->
 ```
 
-**Inject the ngTimePicker module into your app**
+**Inject the `wingify.timePicker` module into your app**
 
 ```js
-angular.module('myApp', ['ngTimePicker']);
+angular.module('myApp', ['wingify.timePicker']);
+```
+
+```html
+<wy-time-picker
+    data-dropdown-toggle-state="settings.dropdownToggleState"
+    data-time-settings="settings.time"
+    data-theme="settings.theme"
+    data-no-range="settings.noRange"
+    data-format="settings.format"
+    data-no-validation="settings.noValidation"
+    data-apply-callback="onApplyTimePicker()"
+    data-clear-callback="onClearTimePicker()">
+</wy-time-picker>
+
 ```
