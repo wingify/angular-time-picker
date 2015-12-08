@@ -10,12 +10,14 @@ describe('Timepicker directive :: ', function() {
 	var scope, compile, $rootScope, timePickerElement;
 
 	beforeEach(module('wingify.timePicker'));
-	beforeEach(module('angular-time-picker.tpl'));
+
+	// If we use template as an external file dependency, use nghtml2js to generate the module
+	//beforeEach(module('angular-time-picker.tpl'));
 
 	describe('UI functional test :: ', function() {
 		var recompile = function () {
 			var template = '' +
-				'<ng-time-picker ' +
+				'<wy-time-picker ' +
         			'data-dropdown-toggle-state="settings.dropdownToggleState" ' +
         			'data-time-settings="settings.time" ' +
         			'data-theme="settings.theme" ' +
@@ -24,7 +26,7 @@ describe('Timepicker directive :: ', function() {
         			'data-apply-callback="settings.onApplyTimePicker(data)" ' +
         			'data-clear-callback="settings.onResetTimePicker(data)" ' +
 				'>' +
-     			'</ng-time-picker>';
+     			'</wy-time-picker>';
 
      		timePickerElement = compile(template)(scope);
 			scope.$digest();
