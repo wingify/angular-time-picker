@@ -8,8 +8,8 @@ app.controller('testController', function ($scope) {
 			time: {
 				fromHour: '02',
 				fromMinute: '30',
-				toHour: '01',
-				toMinute: '20'
+				toHour: '02',
+				toMinute: '40'
 			}
 		},
 		second: {
