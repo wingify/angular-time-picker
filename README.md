@@ -20,7 +20,7 @@ Angular v1.2+
 
 ## Demo
 
-[LIVE DEMO](https://wingify.github.io/angular-time-picker)
+[LIVE DEMO](http://engineering.wingify.com/angular-time-picker/live-demo.html)
 
 ## Installation
 
