@@ -1,11 +1,6 @@
-<p align="center">
-  <img src="images/time-picker.png" alt="Time Picker" width="150" height="150"/>
-</p>
+# <img src="images/time-picker.png" alt="Time Picker" width="50" height="50"/> wyTimePicker
 
-# wyTimePicker
-
-A lightweight angular time picker directive.
-
+A very basic and lightweight angular time picker directive
 
 [![Bower Version](http://img.shields.io/bower/v/angular-time-picker.svg?style=flat)](https://github.com/wingify/angular-time-picker/releases) [![Build Status](http://img.shields.io/travis/wingify/angular-time-picker/master.svg?style=flat)](http://travis-ci.org/wingify/angular-time-picker)
 #### Requirements
