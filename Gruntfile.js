@@ -38,6 +38,16 @@ module.exports = function (grunt) {
                 files: {
                     'dist/angular-time-picker.min.js': ['src/templates.js','src/angular-time-picker.js']
                 }
+            },
+            dev: {
+                files: {
+                    'dist/angular-time-picker.js': ['src/templates.js','dist/angular-time-picker.js']
+                },
+                options: {
+                    compress: false,
+                    mangle: false,
+                    beautify: true
+                }
             }
         },
         cssmin: {
