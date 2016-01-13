@@ -124,9 +124,9 @@ To execute all unit tests, use:
 Contributions are welcome. Whenever possible, please include test coverage with your contribution.
 
 1. Fork it
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
+2. Create your feature branch (``git checkout -b my-new-feature``)
+3. Commit your changes (``git commit -am 'Add some feature'``)
+4. Push to the branch (``git push origin my-new-feature``)
 5. Create new Pull Request
 
 To get the project running, you'll need [NPM](https://www.npmjs.com/) and [Bower](http://bower.io/).
