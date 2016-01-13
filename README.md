@@ -1,6 +1,6 @@
 # <img src="images/time-picker.png" alt="Time Picker" width="50" height="50"/> wyTimePicker
 
-A very basic and lightweight angular time picker directive
+A basic and lightweight angular time picker directive
 
 [![Bower Version](http://img.shields.io/bower/v/angular-time-picker.svg?style=flat)](https://github.com/wingify/angular-time-picker/releases) [![Build Status](http://img.shields.io/travis/wingify/angular-time-picker/master.svg?style=flat)](http://travis-ci.org/wingify/angular-time-picker)
 #### Requirements
@@ -10,11 +10,11 @@ Angular v1.2+
 ## Features
 
 * With no external dependency, angular-time-picker is lighter and faster.
-* It can be used for picking a single time or a range of time.
+* It can be used for selecting a particular time or a time range.
 * Many different configurable options like:
 	* Setting the initial display time as per the requirements
 	* Two minimalistic different themes viz light and dark
-	* Precisely configure/update the range of time as per the needs
+	* Precisely configure / update the time range as per the needs
 	* Robust validation exclusively for time range picker
 	* Provide custom callbacks for apply / cancel operations
 
@@ -63,7 +63,7 @@ There are a number of options that can be configured with inline attributes. All
 | data-dropdown        | false      | `false`, `true` | Time picker dropdown initial state.                                                     |
 | data-time-settings   | {}         | `      -       `| Initial time settings eg. {fromHour: '01',fromMinute: '00',toHour: '20',toMinute: '50'} |
 | data-theme           | light      | `light`, `dark` | Theme for the time picker button and the dropdown                                       |
-| data-no-range        | null       | `false`, `true` | Pick just a ime or a range of time                                                      |
+| data-no-range        | null       | `false`, `true` | Pick a particular time or a time range                                                      |
 | data-format          | 24         | `12`, `24`      | Time Format(hours)                                                                      |
 | data-no-validation   | null       | `false`, `true` | Validation checks for time range picker(useful for preventing misleading data)          |
 | data-apply-callback  | null       | `function`      | Callback to be invoked when APPLY button is being pressed to update time                |
@@ -115,16 +115,18 @@ Tested in Chrome and Firefox.
 
 To execute all unit tests, use:
 
+```bash
 `grunt unit`
+```
 
 ## Contributing
 
 Contributions are welcome. Whenever possible, please include test coverage with your contribution.
 
 1. Fork it
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
+2. Create your feature branch (``git checkout -b my-new-feature``)
+3. Commit your changes (``git commit -am 'Add some feature'``)
+4. Push to the branch (``git push origin my-new-feature``)
 5. Create new Pull Request
 
 To get the project running, you'll need [NPM](https://www.npmjs.com/) and [Bower](http://bower.io/).
