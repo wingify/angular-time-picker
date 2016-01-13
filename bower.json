@@ -23,7 +23,7 @@
 	}],
 	"main": [
 		"dist/angular-time-picker.js",
-		"dist/angular-time-picker.tpl.js"
+		"dist/angular-time-picker.css"
 	],
 	"ignore": [
 		"node_modules",
