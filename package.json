@@ -3,6 +3,7 @@
 	"description": "Angular Time Picker - AngularJS directive for time picker",
 	"version": "1.0.0",
 	"main":"dist/angular-time-picker.js",
+	"style":"dist/angular-time-picker.css",
 	"repository": {
 		"type": "git",
 		"url": "git@github.com:wingify/angular-time-picker.git"
