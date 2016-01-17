@@ -62,12 +62,5 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [ 'clean:before', 'html2js', 'jshint', 'copy:src', 'minify' ]);
     grunt.registerTask('unit', [ 'html2js', 'karma:unit' ]);
 
-    grunt.loadNpmTasks('grunt-html2js');
-    grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-serve');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-copy');
+    require('jit-grunt')(grunt);
 };
