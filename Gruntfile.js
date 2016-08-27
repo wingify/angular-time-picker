@@ -6,6 +6,12 @@ module.exports = function (grunt) {
             main: {
                 src: ['src/*.html'],
                 dest: 'src/templates.js'
+            },
+            options: {
+                module:'html2js',
+                rename: function (moduleName) {
+                    return '/' + moduleName;
+                }
             }
         },
         karma: {
@@ -30,7 +36,17 @@ module.exports = function (grunt) {
         uglify: {
             js: {
                 files: {
-                    'dist/angular-time-picker.min.js': ['src/angular-time-picker.js']
+                    'dist/angular-time-picker.min.js': ['src/templates.js','src/angular-time-picker.js']
+                }
+            },
+            dev: {
+                files: {
+                    'dist/angular-time-picker.js': ['src/templates.js','dist/angular-time-picker.js']
+                },
+                options: {
+                    compress: false,
+                    mangle: false,
+                    beautify: true
                 }
             }
         },
