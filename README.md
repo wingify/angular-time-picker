@@ -2,7 +2,7 @@
 
 A basic and lightweight angular time picker directive
 
-[![Bower Version](http://img.shields.io/bower/v/angular-time-picker.svg?style=flat)](https://github.com/wingify/angular-time-picker/releases) [![Build Status](http://img.shields.io/travis/wingify/angular-time-picker/master.svg?style=flat)](http://travis-ci.org/wingify/angular-time-picker)
+[![Bower Version](http://img.shields.io/bower/v/angular-time-picker.svg?style=flat)](https://github.com/wingify/angular-time-picker/releases) [![npm version](https://badge.fury.io/js/angular-time-picker.svg)](https://www.npmjs.com/package/angular-time-picker) [![npm](https://img.shields.io/npm/dt/angular-time-picker.svg)](https://www.npmjs.com/package/angular-time-picker) [![Build Status](http://img.shields.io/travis/wingify/angular-time-picker/master.svg?style=flat)](http://travis-ci.org/wingify/angular-time-picker)
 #### Requirements
 
 Angular v1.2+
