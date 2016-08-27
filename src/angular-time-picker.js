@@ -189,7 +189,7 @@ angular.module('wingify.timePicker', ['html2js'])
 					scope.validateEndingMinuteTime();
 				}
 
-				if (!scope.areInitialSettingsValidated) {
+				if (scope.areInitialSettingsValidated) {
 					scope.applyTimeRangeFilter();
 				}
 			};
