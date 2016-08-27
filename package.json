@@ -1,7 +1,7 @@
 {
 	"name": "angular-time-picker",
 	"description": "Angular Time Picker - AngularJS directive for time picker",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"main":"dist/angular-time-picker.js",
 	"style":"dist/angular-time-picker.css",
 	"repository": {
