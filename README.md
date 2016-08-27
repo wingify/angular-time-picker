@@ -20,7 +20,9 @@ Angular v1.2+
 
 ## Demo
 
-[LIVE DEMO](http://engineering.wingify.com/angular-time-picker/live-demo.html)
+[LIVE DEMO on Plunkr](https://plnkr.co/edit/P38jXpcLPnAzWVcpN5Sv?p=preview)
+
+[Read More](http://engineering.wingify.com/angular-time-picker/introduction.html)
 
 ## Installation
 
@@ -139,6 +141,10 @@ To get the project running, you'll need [NPM](https://www.npmjs.com/) and [Bower
 ## Authors
 
 * **[Varun Malhotra](https://github.com/softvar)**
+
+## Contributors
+
+* **[@pra85](https://github.com/pra85)** - PRs - [#1](https://github.com/wingify/angular-time-picker/pull/1), [#2](https://github.com/wingify/angular-time-picker/pull/2), [#3](https://github.com/wingify/angular-time-picker/pull/3), [#5](https://github.com/wingify/angular-time-picker/pull/5), [#6](https://github.com/wingify/angular-time-picker/pull/6), [#7](https://github.com/wingify/angular-time-picker/pull/7)
 
 ## Copyright and license
 
