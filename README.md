@@ -24,7 +24,8 @@ Angular v1.2+
 
 ## Installation
 
-`bower install angular-time-picker --save`
+* Via [bower](https://bower.io/search/?q=angular-time-picker) - **`bower install angular-time-picker --save`**
+* Via [npm](https://www.npmjs.com/package/angular-time-picker) - **`npm install angular-time-picker --save-dev`**
 
 ## Usage
 
